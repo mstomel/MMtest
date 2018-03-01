@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class Main {
 
     public static ArrayList<String> rivalries = new ArrayList<>();
+    public static ArrayList<Team> teams = new ArrayList<>();
     public static void main(String[] args) throws IOException {
 
         File file = new File("Rivalries");
-        ArrayList<Team> teams = new ArrayList<>();
 
         Scanner fileReader = new Scanner(file);
         while(fileReader.hasNextLine()) {
@@ -25,7 +25,16 @@ public class Main {
             Team temp = new Team(nameID[0], nameID[1]);
             teams.add(temp);
         }
-
-        System.out.println(teams);
+        System.out.println();
+        //System.out.println(teams);
+    }
+    public Team teamFinder(String teamName) {
+        for (Team searched : teams) {
+            if (searched.schoolName.equalsIgnoreCase(teamName)) {
+                return searched;
+            }
+        }
+        System.out.println("error: team not found");
+        return teams.get(0);
     }
 }

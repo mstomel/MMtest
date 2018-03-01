@@ -2,7 +2,9 @@ package com.company;
 
 public class Team {
 
-    public Team(String name, String id){
-
+    public String schoolName, id;
+    public Team(String name, String ID){
+        schoolName = name;
+        id = ID;
     }
 }
