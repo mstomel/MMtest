@@ -19,6 +19,7 @@ public class Main {
         rivalries.add(fileReader.nextLine());
         }
 
+
         file = new File("DataFiles/TeamSpellings.csv");
         fileReader = new Scanner(file);
         while(fileReader.hasNextLine()) {
