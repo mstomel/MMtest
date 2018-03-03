@@ -7,14 +7,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static ArrayList<String> rivalries = new ArrayList<>();
-    public static ArrayList<Team> teams = new ArrayList<>();
-    public static ArrayList<Team> r64 = new ArrayList<>();
-    public static ArrayList<Team> r32 = new ArrayList<>();
-    public static ArrayList<Team> s16 = new ArrayList<>();
-    public static ArrayList<Team> e8 = new ArrayList<>();
-    public static ArrayList<Team> f4 = new ArrayList<>();
-    public static ArrayList<Team> c = new ArrayList<>();
+    private static ArrayList<String> rivalries = new ArrayList<>();
+    private static ArrayList<Team> teams = new ArrayList<>();
+    private static ArrayList<Team> r64 = new ArrayList<>();
+    private static ArrayList<Team> r32 = new ArrayList<>();
+    private static ArrayList<Team> s16 = new ArrayList<>();
+    private static ArrayList<Team> e8 = new ArrayList<>();
+    private static ArrayList<Team> f4 = new ArrayList<>();
+    private static ArrayList<Team> c = new ArrayList<>();
     public static void main(String[] args) throws IOException {
 
         File file = new File("Rivalries");
@@ -48,7 +48,7 @@ public class Main {
         System.out.println("error: team not found");
         return teams.get(0);
     }
-    public static Team teamFinder(int ID) {
+    private static Team teamFinder(int ID) {
         String id = Integer.toString(ID);
         for (Team searched : teams) {
             if (searched.id.equalsIgnoreCase(id)) {
@@ -58,17 +58,17 @@ public class Main {
         System.out.println("error: team not found");
         return teams.get(0);
     }
-    public static ArrayList<Team> seasonReader(String year) throws IOException {
+    private static ArrayList<Team> seasonReader(String year) throws IOException {
         File file = new File("DataFiles/NCAATourneyCompactResults.csv");
         Scanner fileReader = new Scanner(file);
         ArrayList<Team> sTeams = new ArrayList<>();
-        int startDay;
-        if (Integer.parseInt(year) >= 2001) {
+        int startDay = 136;
+        /*if (Integer.parseInt(year) >= 2001) {
             startDay = 134;
         }
         else {
             startDay = 136;
-        }
+        }*/
         while(fileReader.hasNextLine() ) {
             String [] temp = fileReader.nextLine().split(",");
             if (Integer.parseInt(year) >= 2011) {
@@ -104,7 +104,7 @@ public class Main {
         }
         return sTeams;
     }
-    public static void recordBuilder(String year) throws IOException {
+    private static void recordBuilder(String year) throws IOException {
         File file = new File("DataFiles/NCAATourneyCompactResults.csv");
         Scanner fileReader = new Scanner(file);
         while (fileReader.hasNextLine()) {
@@ -118,7 +118,7 @@ public class Main {
             }
         }
     }
-    public static void oldRunner() throws IOException {
+    private static void oldRunner() throws IOException {
         Scanner mode = new Scanner(System.in);
         System.out.println("enter year");
         String year = mode.next();

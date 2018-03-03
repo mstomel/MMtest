@@ -1,10 +1,10 @@
 package com.company;
 
-public class Team {
+ class Team {
 
-    public String schoolName, id;
-    public int wins, losses;
-    public Team(String name, String ID){
+    String schoolName, id;
+    int wins, losses;
+    Team(String name, String ID){
         schoolName = name;
         id = ID;
     }
